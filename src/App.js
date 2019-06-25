@@ -9,8 +9,6 @@ const fetch = keywords =>
     }, 10000);
   });
 
-const Loading = () => 'loading';
-
 const App = () => {
   const [inputValue, setInputValue] = useState('');
   const [searchResult, setSearchResult] = useState([]);
@@ -24,7 +22,6 @@ const App = () => {
       setLoading(true);
       fetch(inputValue).then(response => {
         if (!cancel) {
-          console.log({ response });
           cancel = true;
           setSearchResult(response);
           setLoading(false);
@@ -39,9 +36,13 @@ const App = () => {
   }, [inputValue]);
 
   const result = loading ? (
-    <Loading />
+    <div className="loading">{'loading'}</div>
   ) : (
-    searchResult.map((item, i) => <div key={i}>{item}</div>)
+    searchResult.map((item, i) => (
+      <div className="item" key={i}>
+        {item}
+      </div>
+    ))
   );
 
   return (
