@@ -1,4 +1,8 @@
-This project is a demostration of jest mock function.
+This project is a demostration of jest timer mock.
+
+## Jest API
+
+[Timer mocks](https://jestjs.io/docs/en/timer-mocks)
 
 ## Install dependencies
 
